@@ -1,0 +1,2 @@
+### Get all the blogs
+GET http://localhost:3001/blog
