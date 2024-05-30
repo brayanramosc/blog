@@ -1,2 +1,13 @@
 ### Get all the blogs
-GET http://localhost:3001/blog
+GET http://localhost:3003/api/blogs
+
+### Create new blog
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "Tutorial de cómo preparar un rico pan con mermelada",
+    "author": "Kiwilimon",
+    "url": "https://www.kiwilimon.com/receta/postres/postres-con-frutas/pan-tostado-con-mermelada-de-fresa",
+    "likes": "4"
+}
