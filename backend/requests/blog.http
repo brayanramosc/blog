@@ -1,6 +1,20 @@
 ### Get all the blogs
 GET http://localhost:3003/api/blogs
 
+### Delete blog
+DELETE http://localhost:3003/api/blogs/665ba89e52260338d50ed2f8
+
+### Update blog
+PUT http://localhost:3003/api/blogs/665ba89e52260338d50ed2f8
+Content-Type: application/json
+
+{
+    "title": "Tutorial de cómo preparar un rico pan con mermelada",
+    "author": "Kiwilimon",
+    "url": "https://www.kiwilimon.com/receta/postres/postres-con-frutas/pan-tostado-con-mermelada-de-fresa",
+    "likes": "15"
+}
+
 ### Create new blog
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
