@@ -2,6 +2,7 @@ const express = require('express')
 const blogRouter = express.Router()
 const Blog = require('../models/blog')
 const User = require('../models/user')
+const jwt = require('jsonwebtoken')
 
 blogRouter.get('/', async (_, response) => {
     const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 })
@@ -10,8 +11,7 @@ blogRouter.get('/', async (_, response) => {
 
 blogRouter.post('/', async (request, response) => {
     const body = request.body
-
-    const user = await User.findById(body.userId)
+    const user = request.user
 
     if (!body.title || !body.url) {
         return response.status(400).json({
@@ -35,6 +35,20 @@ blogRouter.post('/', async (request, response) => {
 })
 
 blogRouter.delete('/:id', async (request, response) => {
+    const blogToDelete = await Blog.findById(request.params.id)
+    if (!blogToDelete) {
+        return response.status(400).json({ error: 'blog not found' })
+    }
+    
+    const user = request.user
+
+    if (!(blogToDelete.user.toString() === user._id.toString())) {
+        return response.status(401).json({ error: 'invalid token' })
+    }
+
+    user.blogs = user.blogs.filter(blog => blog.toString() !== blogToDelete._id.toString())
+    await user.save()
+
     await Blog.findByIdAndDelete(request.params.id)
     response.status(204).end()
 })

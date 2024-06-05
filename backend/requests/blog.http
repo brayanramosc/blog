@@ -2,7 +2,8 @@
 GET http://localhost:3003/api/blogs
 
 ### Delete blog
-DELETE http://localhost:3003/api/blogs/665ba89e52260338d50ed2f8
+DELETE http://localhost:3003/api/blogs/665fc66d080dbefb2495abce
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY2NWU0ZDRmOTExMmMzZjVlMWYyNjhjNyIsImlhdCI6MTcxNzU0MzE4Nn0.XK-8XUiC0LtUXw7S_9VzoxpmofK7uFTSfxvSSSj1TQ4
 
 ### Update blog
 PUT http://localhost:3003/api/blogs/665ba89e52260338d50ed2f8
@@ -18,11 +19,11 @@ Content-Type: application/json
 ### Create new blog
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY2NWU0ZDRmOTExMmMzZjVlMWYyNjhjNyIsImlhdCI6MTcxNzU0MzE4Nn0.XK-8XUiC0LtUXw7S_9VzoxpmofK7uFTSfxvSSSj1TQ4
 
 {
-    "title": "Tutorial de cómo preparar un rico pan con mermelada",
-    "author": "Kiwilimon",
-    "url": "https://www.kiwilimon.com/receta/postres/postres-con-frutas/pan-tostado-con-mermelada-de-fresa",
-    "likes": "4",
-    "userId": "665e4e149162bebeb235d0e5"
+    "title": "Canonical string reduction",
+    "author": "Edsger W. Dijkstra",
+    "url": "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html",
+    "likes": 12
 }
